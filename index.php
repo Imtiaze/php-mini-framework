@@ -9,12 +9,13 @@ $config = require('config.php');
 
 $db = new Database($config['database']);
 
-$posts = $db->query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
+$id = $_GET['id'];
+// $query = "select * from posts where id = {$id}"; Never inline user data
+http://localhost:7000/?id=2; drop table user; will drop the table instead
 
+$query = "Select * from posts where id = ?";
 
-foreach ($posts as $post) {
-    echo "<li>" . $post['title'] . "</li>";
-}
-
+$posts = $db->query($query, [$id])->fetch(PDO::FETCH_ASSOC);
+var_dump($posts);
 
 require 'routes.php';
