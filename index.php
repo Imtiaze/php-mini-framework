@@ -1,8 +1,8 @@
 <?php 
 
 require 'functions.php';
-require 'Database.php';
-require 'Response.php';
+require 'Core/Database.php';
+require 'Core/Response.php';
 require 'router.php';
 
 
