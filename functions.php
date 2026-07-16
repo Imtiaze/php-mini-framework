@@ -20,14 +20,13 @@ function authorize($condition, $status = Response::FORBIDDEN)
     }
 }
 
-function base_path($path)
+function base_path(string $path)
 {
     return BASE_PATH . $path;
 }
 
-function view($path, $attributes = [])
+function view(string $path, array $attributes = [])
 {
     extract($attributes);
-
     require base_path('views/' . $path);
 }
